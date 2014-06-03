@@ -6,10 +6,10 @@
     "core-layout": "Polymer/core-layout#master",
     "core-menu": "Polymer/core-menu#master",
     "core-overlay": "Polymer/core-overlay#master",
-    "core-transition-css": "Polymer/core-transition-css#master",
+    "core-transition": "Polymer/core-transition#master",
     "paper-icon-button": "Polymer/paper-icon-button#master",
     "paper-item": "Polymer/paper-item#master",
-    "paper-shadow": "Polymer/paper-shadow",
-    "paper-toolbar": "Polymer/paper-toolbar"
+    "paper-shadow": "Polymer/paper-shadow#master",
+    "polymer-animation": "PolymerLabs/polymer-animation#master"
   }
 }
