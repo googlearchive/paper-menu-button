@@ -9,6 +9,7 @@
     "core-transition": "Polymer/core-transition#master",
     "paper-icon-button": "Polymer/paper-icon-button#master",
     "paper-item": "Polymer/paper-item#master",
-    "paper-shadow": "Polymer/paper-shadow"
+    "paper-shadow": "Polymer/paper-shadow#master",
+    "polymer-animation": "PolymerLabs/polymer-animation#master"
   }
 }
