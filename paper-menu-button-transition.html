@@ -15,7 +15,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link href="../core-transition/core-transition-css.html" rel="import">
 <link href="../core-animation/web-animations.html" rel="import">
 
-<polymer-element name="paper-menu-button-transition" extends="core-transition-css" attributes="duration transformOrigin">
+<polymer-element name="paper-menu-button-transition" extends="core-transition-css" attributes="duration transformOrigin direction">
   <template>
     <link no-shim href="paper-menu-button-transition.css" rel="stylesheet">
   </template>
@@ -81,6 +81,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           });
           var itemDelay = offset + (1 - offset) / 2;
           var itemDuration = this.duration * (1 - itemDelay) / items.length;
+
+          if (this.direction === 'up') {
+            items.reverse();
+          }
           items.forEach(function(item, i) {
             anims.push(new Animation(item, [{
               'opacity': 0
@@ -116,3 +120,5 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <paper-menu-button-transition id="paper-menu-button-transition-top-left" transformOrigin="0% 0%"></paper-menu-button-transition>
 <paper-menu-button-transition id="paper-menu-button-transition-top-right" transformOrigin="100% 0%"></paper-menu-button-transition>
 <paper-menu-button-transition id="paper-menu-button-transition-top-right-slow" transformOrigin="100% 0%" duration="10000"></paper-menu-button-transition>
+<paper-menu-button-transition id="paper-menu-button-transition-bottom-left" transformOrigin="0% 100%" direction="up"></paper-menu-button-transition>
+<paper-menu-button-transition id="paper-menu-button-transition-bottom-right" transformOrigin="100% 100%" direction="up"></paper-menu-button-transition>

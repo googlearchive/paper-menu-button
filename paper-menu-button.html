@@ -35,10 +35,10 @@ Example:
 </template>
 </polymer-element>
 
-<polymer-element name="paper-menu-button" extends="paper-focusable" attributes="src icon opened halign valign slow" on-tap="{{tapAction}}">
+<polymer-element name="paper-menu-button" extends="paper-focusable" attributes="src icon opened halign valign slow direction" on-tap="{{tapAction}}">
   <template>
     <link rel="stylesheet" href="paper-menu-button.css">
-    <paper-menu-button-overlay target="{{$.overlay}}" relatedTarget="{{}}" halign="{{halign}}" valign="{{valign}}" opened="{{opened}}" transition="paper-menu-button-transition-top-{{halign}}{{slow ? '-slow' : ''}}"></paper-menu-button-overlay>
+    <paper-menu-button-overlay target="{{$.overlay}}" relatedTarget="{{}}" halign="{{halign}}" valign="{{valign}}" opened="{{opened}}" transition="paper-menu-button-transition-{{direction==='up' ? 'bottom' : 'top'}}-{{halign}}{{slow ? '-slow' : ''}}" direction="{{direction}}"></paper-menu-button-overlay>
     <paper-menu-button-overlay-container id="overlay">
       <paper-shadow target="{{$.overlayBg}}" z="0" hasPosition></paper-shadow>
       <div class="paper-menu-button-overlay-ink"></div>
@@ -79,7 +79,16 @@ Example:
          * @type 'bottom' | 'top'
          * @default 'top'
          */
-        valign: {value: 'top', reflect: true}
+        valign: {value: 'top', reflect: true},
+
+        /**
+         * The direction the pulldown menu opens in
+         *
+         * @attribute direction
+         * @type 'down'|'up',
+         * @default 'down'
+         */
+        direction: { value: 'down', reflect: true },
       },
 
       /**
