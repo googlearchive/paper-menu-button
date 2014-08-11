@@ -38,7 +38,7 @@ Example:
 <polymer-element name="paper-menu-button" extends="paper-focusable" attributes="src icon opened halign valign slow" on-tap="{{tapAction}}">
   <template>
     <link rel="stylesheet" href="paper-menu-button.css">
-    <paper-menu-button-overlay target="{{$.overlay}}" relatedTarget="{{}}" halign="{{halign}}" valign="{{valign}}" opened="{{opened}}" transition="paper-menu-button-transition-top-{{halign}}{{slow ? '-slow' : ''}}"></paper-menu-button-overlay>
+    <paper-menu-button-overlay target="{{$.overlay}}" relatedTarget="{{}}" halign="{{halign}}" valign="{{valign}}" opened="{{opened}}" transition="paper-menu-button-transition-{{valign}}-{{halign}}{{slow ? '-slow' : ''}}"></paper-menu-button-overlay>
     <paper-menu-button-overlay-container id="overlay">
       <paper-shadow target="{{$.overlayBg}}" z="0" hasPosition></paper-shadow>
       <div class="paper-menu-button-overlay-ink"></div>
