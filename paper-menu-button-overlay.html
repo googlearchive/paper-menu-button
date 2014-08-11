@@ -21,7 +21,7 @@ element, e.g. the button with a pulldown menu.
 @homepage github.io
 -->
 
-<polymer-element name="paper-menu-button-overlay" extends="core-overlay" attributes="relatedTarget halign valign direction">
+<polymer-element name="paper-menu-button-overlay" extends="core-overlay" attributes="relatedTarget halign valign">
   <script>
     Polymer('paper-menu-button-overlay', {
 
@@ -43,16 +43,7 @@ element, e.g. the button with a pulldown menu.
          * @type 'left'|'right'|'center'
          * @default 'left'
          */
-        halign: 'left',
-
-        /**
-         * The direction the overlay opens toward
-         *
-         * @attribute direction
-         * @type 'down'|'up',
-         * @default 'down'
-         */
-        direction: 'down',
+        halign: 'left'
       },
 
       updateTargetDimensions: function() {
@@ -75,23 +66,13 @@ element, e.g. the button with a pulldown menu.
             this.target.style.left = (rect.left - (rect.width - this.target.cachedSize.width) / 2) + 'px';
           }
 
-          var openUpwards = this.direction === 'up';
-
-          if (this.valign === 'top' && !openUpwards) {
+          if (this.valign === 'top') {
             this.target.style.top = rect.top + 'px';
           } else if (this.valign === 'bottom') {
-            this.target.style.top = rect.bottom + 'px';
+            this.target.style.top = 'auto';
+            this.target.style.bottom = window.innerHeight - rect.bottom + 'px';
           } else {
             this.target.style.top = rect.top + 'px';
-          }
-
-          if (openUpwards) {
-            this.target.style.top = 'auto';
-            if (this.valign === 'top') {
-              this.target.style.bottom = window.innerHeight - rect.top + 'px';
-            } else {
-              this.target.style.bottom = window.innerHeight - rect.bottom + 'px';
-            }
           }
         } else {
           this.super();
