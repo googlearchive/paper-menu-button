@@ -8,12 +8,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 :host(.paper-menu-button-transition) {
   outline: none;
   opacity: 0;
-  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, visibility 0.2s ease-in;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, visibility 0.2s ease-in;
 }
 
 :host(.paper-menu-button-transition.paper-menu-button-opened) {
   opacity: 1;
+  visibility: visible;
   transform: none;
   -webkit-transform: none;
+}
+
+:host(.paper-menu-button-transition.paper-menu-button-closed) {
+  visibility: hidden;
 }
