@@ -61,11 +61,19 @@ license that can be found in the LICENSE file.
     }
 
     core-icon {
-      fill: #fff;
+      fill: #8d1818;
     }
 
     paper-item core-icon {
       fill: #000;
+    }
+
+    body /deep/ core-icon {
+      fill: #fff;
+    }
+
+    paper-menu-button::shadow #paper-button {
+      background: #dbdbdb;
     }
 
   </style>
@@ -93,6 +101,16 @@ license that can be found in the LICENSE file.
         <paper-item label="Sign Out"></paper-item>
       </paper-menu-button>
     </div>
+    <paper-menu-button label="Actions" raisedButton valign="bottom">
+      <paper-item label="Poke"></paper-item>
+      <paper-item label="Follow"></paper-item>
+      <paper-item label="Delete"></paper-item>
+    </paper-menu-button>
+    <paper-menu-button icon="add" raisedButton valign="top">
+      <paper-item label="Document"></paper-item>
+      <paper-item label="Image"></paper-item>
+      <paper-item label="Delete"></paper-item>
+    </paper-menu-button>
   </div>
 
 </body>

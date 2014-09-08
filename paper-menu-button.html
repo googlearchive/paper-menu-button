@@ -82,7 +82,12 @@ paper-menu-button:shadow .paper-menu-button-overlay-ink {
     <link rel="stylesheet" href="paper-menu-button.css">
     <core-style ref="paper-menu-button"></core-style>
 
-    <core-icon src="{{src}}" icon="{{icon}}"></core-icon>
+    <template if="{{label || raisedButton}}">
+      <paper-button id="paper-button" label="{{label}}" iconSrc="{{src}}" icon="{{icon}}" raisedButton="{{raisedButton}}"></paper-button>
+    </template>
+    <template if="{{!(label || raisedButton) && (src || icon)}}">
+      <core-icon id="icon" src="{{src}}" icon="{{icon}}"></core-icon>
+    </template>
 
     <core-dropdown id="dropdown" relatedTarget="{{}}" opened="{{opened}}" halign="{{halign}}" valign="{{valign}}" transition="paper-menu-button-transition-top-{{halign}}{{slow ? '-slow' : ''}}" on-core-transitionend="{{transitionEndAction}}">
 
@@ -131,28 +136,47 @@ paper-menu-button:shadow .paper-menu-button-overlay-ink {
          * @default 'top'
          */
         valign: 'top',
+
+        /**
+         * The label of the button.
+         *
+         * @attribute label
+         * @type string
+         * @default ''
+         */
+        label: '',
+
+        /**
+         * If true, the button will be styled as a "raised" button.
+         *
+         * @attribute raisedButton
+         * @type boolean
+         * @default false
+         */
+        raisedButton: {value: false, reflect: true},
+
+        /**
+         * The URL of an image for the icon. Should not use `icon` property
+         * if you are using this property.
+         *
+         * @attribute src
+         * @type string
+         * @default ''
+         */
+        src: '',
+
+        /**
+         * Specifies the icon name or index in the set of icons available in
+         * the icon set.  Should not use `src` property if you are using this
+         * property.
+         *
+         * @attribute icon
+         * @type string
+         * @default ''
+         */
+        icon: '',
+
       },
-
-      /**
-       * The URL of an image for the icon. Should not use `icon` property
-       * if you are using this property.
-       *
-       * @attribute src
-       * @type string
-       * @default ''
-       */
-      src: '',
-
-      /**
-       * Specifies the icon name or index in the set of icons available in
-       * the icon set.  Should not use `src` property if you are using this
-       * property.
-       *
-       * @attribute icon
-       * @type string
-       * @default ''
-       */
-      icon: '',
 
       slow: false,
 
